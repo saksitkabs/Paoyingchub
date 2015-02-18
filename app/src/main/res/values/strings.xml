@@ -10,5 +10,6 @@
     <string name="startgame">Start Game</string>
     <string name="title_activity_high_score">HighScore</string>
     <string name="title_activity_game">game</string>
+    <string name="btshow">btshow</string>
 
 </resources>

@@ -11,7 +11,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
+        android:id="@+id/en1"
         android:layout_marginTop="94dp"
         android:src="@drawable/enemies1resize"
         android:layout_alignParentTop="true"
@@ -20,18 +20,18 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton2"
+        android:id="@+id/en2"
         android:src="@drawable/enemies1resize"
-        android:layout_alignTop="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton" />
+        android:layout_alignTop="@+id/en1"
+        android:layout_toEndOf="@+id/en1" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton3"
+        android:id="@+id/en3"
         android:src="@drawable/enemies1resize"
-        android:layout_alignTop="@+id/imageButton2"
-        android:layout_toEndOf="@+id/imageButton2" />
+        android:layout_alignTop="@+id/en2"
+        android:layout_toEndOf="@+id/en2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,33 +39,39 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Round 1"
         android:id="@+id/textView10"
-        android:layout_above="@+id/imageButton2"
+        android:layout_above="@+id/en2"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton4"
+        android:id="@+id/paper1"
         android:layout_marginBottom="50dp"
         android:src="@drawable/paperv1ja1"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:onClick="buttonClicked" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton5"
+        android:id="@+id/rock1"
         android:src="@drawable/rockv1ja1"
-        android:layout_alignTop="@+id/imageButton4"
-        android:layout_toEndOf="@+id/imageButton4" />
+        android:layout_alignTop="@+id/paper1"
+        android:layout_toEndOf="@+id/paper1"
+        android:onClick="buttonClicked"
+        android:clickable="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton6"
+        android:id="@+id/sccissor1"
         android:src="@drawable/sccissorja1"
-        android:layout_alignBottom="@+id/imageButton5"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignBottom="@+id/rock1"
+        android:layout_alignParentEnd="true"
+        android:onClick="buttonClicked"
+        android:clickable="true" />
 
 </RelativeLayout>

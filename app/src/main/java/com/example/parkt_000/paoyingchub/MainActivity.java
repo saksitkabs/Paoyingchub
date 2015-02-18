@@ -1,18 +1,48 @@
 package com.example.parkt_000.paoyingchub;
 
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
 
+     DBgame helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+
+
+    public void buttonClicked(View v) {
+        int id = v.getId();
+        Intent i;
+
+        switch(id) {
+            case R.id.btstart:
+                i = new Intent(this, game.class);
+                startActivityForResult(i, 88);
+                break;
+
+            case R.id.btshow:
+                i = new Intent(this, HighScore.class);
+                startActivity(i);
+                break;
+
+            case R.id.btreset:
+                SQLiteDatabase db = helper.getWritableDatabase();
+                int n_rows = db.delete("DBscore", "", null);
+
+                break;
+        }
+    }
+
 
 
     @Override

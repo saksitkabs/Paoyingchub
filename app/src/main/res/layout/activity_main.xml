@@ -17,33 +17,33 @@
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/logo" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/startgame"
-        android:id="@+id/textView"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="93dp"
-        android:textColor="#ff000000" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/Highscore"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:textColor="#ff000000" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Resetbtn"
-        android:id="@+id/button"
+        android:id="@+id/btreset"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_centerHorizontal="true"
+        android:onClick="buttonClicked" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Game"
+        android:id="@+id/btstart"
+        android:layout_marginTop="75dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignStart="@+id/btreset"
+        android:layout_alignEnd="@+id/btshow"
+        android:onClick="buttonClicked" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="High Score"
+        android:id="@+id/btshow"
+        android:layout_below="@+id/btstart"
+        android:layout_alignEnd="@+id/btreset"
+        android:onClick="buttonClicked" />
+
 </RelativeLayout>
