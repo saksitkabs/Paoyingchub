@@ -57,8 +57,8 @@ public class game extends ActionBarActivity {
                 choice = "rock";
 
 
-                 n = new Random().nextInt(2); // Gives n such that 0 <= n < 20
-                a = new Random().nextInt(2);
+                 n = new Random().nextInt(3); // Gives n such that 0 <= n < 20
+                a = new Random().nextInt(3);
 
             if(n==0){
 
@@ -145,7 +145,8 @@ public class game extends ActionBarActivity {
 
                 choice = "paper";
 
-                n = new Random().nextInt(2); // Gives n such that 0 <= n < 20
+                n = new Random().nextInt(3); // Gives n such that 0 <= n < 20
+                a = new Random().nextInt(3);
 
                 if(n==0){
 
@@ -223,7 +224,8 @@ public class game extends ActionBarActivity {
 
                 choice = "sccissor1";
 
-                n = new Random().nextInt(2); // Gives n such that 0 <= n < 20
+                n = new Random().nextInt(3); // Gives n such that 0 <= n < 20
+                a = new Random().nextInt(3);
 
                 if(n==0){
 
