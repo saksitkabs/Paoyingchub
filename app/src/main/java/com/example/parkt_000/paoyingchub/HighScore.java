@@ -1,23 +1,74 @@
 package com.example.parkt_000.paoyingchub;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 
-public class HighScore extends ActionBarActivity {
+public class HighScore extends ActionBarActivity
+      {
 
+
+   SimpleCursorAdapter adapter;
     DBgame helper;
+    MediaPlayer player ;
+    MediaPlayer player2 ;
+    MediaPlayer player3 ;
 
-    @Override
+
+          protected void onResume() {
+              super.onResume();
+              SQLiteDatabase db = helper.getReadableDatabase();
+
+              Cursor cursor = db.rawQuery("SELECT * FROM dbscore ;", null);
+
+              SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
+                      android.R.layout.simple_list_item_1, // A textview
+                      cursor, // cursor to a data collection
+                      new String[] {"name","score"}, // column to be displayed
+                      new int[] {android.R.id.text1}, // ID of textview to display
+                      0);
+
+              ListView lv = (ListView)findViewById(R.id.name);
+              lv.setAdapter(adapter);
+          }
+
+          @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        player=MediaPlayer.create(HighScore.this,R.raw.rank);
+        player.setLooping(true);
+        player.start();
         setContentView(R.layout.activity_high_score);
+
+        helper = new DBgame(this);
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM dbscore ;", null);
+
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
+                android.R.layout.simple_list_item_2, // A textview
+                cursor, // cursor to a data collection
+                new String[] {"name","score"}, // column to be displayed
+                new int[] {android.R.id.text1,android.R.id.text2}, // ID of textview to display
+                0);
+
+        ListView lv = (ListView)findViewById(R.id.name);
+        lv.setAdapter(adapter);
     }
+
+
 
 
 
@@ -27,16 +78,23 @@ public class HighScore extends ActionBarActivity {
 
         switch(id) {
             case R.id.btmain:
+
+                player.stop();
+                player2=MediaPlayer.create(HighScore.this,R.raw.click);
+                player2.start();
                 i = new Intent(this, MainActivity.class);
                 startActivityForResult(i, 88);
                 break;
 
 
 
-            case R.id.btreset:
-                SQLiteDatabase db = helper.getWritableDatabase();
-                int n_rows = db.delete("DBscore", "", null);
+            case R.id.button3:
+                player3=MediaPlayer.create(HighScore.this,R.raw.lose);
+                player3.start();
 
+                SQLiteDatabase db = helper.getWritableDatabase();
+                int n_rows = db.delete("dbscore", "", null);
+                onResume();
                 break;
         }
     }

@@ -4,7 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:id="@+id/bg"
+    android:id="@+id/bgmain"
     android:background="@drawable/backgroundphoto">
 
     <ImageView
@@ -20,30 +20,21 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Resetbtn"
-        android:id="@+id/btreset"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="buttonClicked" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="New Game"
         android:id="@+id/btstart"
         android:layout_marginTop="75dp"
+        android:onClick="buttonClicked"
         android:layout_below="@+id/imageView"
-        android:layout_alignStart="@+id/btreset"
-        android:layout_alignEnd="@+id/btshow"
-        android:onClick="buttonClicked" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="High Score"
         android:id="@+id/btshow"
-        android:layout_below="@+id/btstart"
-        android:layout_alignEnd="@+id/btreset"
-        android:onClick="buttonClicked" />
+        android:onClick="buttonClicked"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="36dp" />
 
 </RelativeLayout>

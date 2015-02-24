@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBgame extends SQLiteOpenHelper {
 
-    private static final String name = "DBscores.sqlite3";
+    private static final String name = "dbscores.sqlite3";
     private static final int version = 2;
 
 
@@ -16,16 +16,16 @@ public class DBgame extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE DBscore (" +
+        String sql = "CREATE TABLE dbscore (" +
                 "_id integer primary key autoincrement," +
                 "name text not null," +             // name of user
-                "score int default 0,);";         // score
+                "score int default 0);";         // score
         db.execSQL(sql);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sql = "DROP TABLE IF EXISTS DBscore;";
+        String sql = "DROP TABLE IF EXISTS dbscore;";
         db.execSQL(sql);
         this.onCreate(db);
     }
