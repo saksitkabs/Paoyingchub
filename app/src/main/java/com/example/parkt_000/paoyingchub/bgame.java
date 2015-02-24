@@ -48,7 +48,8 @@ public class bgame extends ActionBarActivity {
 
                     i = new Intent(this, game.class);
                     i.putExtra("Ename",ssname);
-                    startActivity(i);
+
+                    startActivityForResult(i, 88);
                     break;
                 }
             }
@@ -64,7 +65,7 @@ public class bgame extends ActionBarActivity {
 
             case R.id.main:
                 i = new Intent(this, MainActivity.class);
-                startActivityForResult(i, 88);
+                startActivity(i);
 
 
 
