@@ -81,4 +81,32 @@
         android:layout_below="@+id/rock1"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/next"
+        android:layout_alignParentBottom="true"
+        android:onClick="buttonClicked2" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restart"
+        android:id="@+id/restart"
+        android:layout_alignTop="@+id/next"
+        android:layout_alignEnd="@+id/sccissor1"
+        android:onClick="buttonClicked2" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Game Over"
+        android:id="@+id/over"
+        android:layout_below="@+id/en1"
+        android:layout_toStartOf="@+id/restart"
+        android:onClick="buttonClicked2" />
+
 </RelativeLayout>
