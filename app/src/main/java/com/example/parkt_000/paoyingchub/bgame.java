@@ -85,6 +85,8 @@ public class bgame extends ActionBarActivity {
                 String name = data.getStringExtra("name");
                 int score = data.getIntExtra("score", 0);
 
+                Log.d("user",""+score);
+
 
                 helper = new DBgame(this.getApplicationContext());
                 SQLiteDatabase db = helper.getWritableDatabase();

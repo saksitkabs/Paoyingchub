@@ -56,26 +56,37 @@ public class MainActivity extends ActionBarActivity {
         switch(id) {
             case R.id.btstart:
 
-                player.stop();
 
 
 
-                player.release();
+
+                if(player!= null){
+                    player.stop();
+                    player.release();}
+
+                if(player3!= null){
+                    player3.stop();
+                    player3.release();}
+
+
                 player2=MediaPlayer.create(MainActivity.this,R.raw.click);
                 player2.start();
 
                //timer();
 
 
-                i = new Intent(this, bgame.class);
+                i = new Intent(this, Splash_screen.class);
                 startActivity(i);
                 break;
 
             case R.id.btshow:
 
 
-                player.stop();
-                player.release();
+                if(player!= null){
+                    player.stop();
+                    player.release();}
+
+
                 player2=MediaPlayer.create(MainActivity.this,R.raw.click);
                 player2.start();
                 i = new Intent(this, HighScore.class);

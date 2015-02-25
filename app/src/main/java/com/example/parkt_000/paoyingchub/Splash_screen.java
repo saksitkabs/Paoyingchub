@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,21 +22,35 @@ public class Splash_screen extends ActionBarActivity {
     private ProgressBar progressBar;
 
 
-
+    private final int SPLASH_DISPLAY_LENGTH = 5000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
+
+        new Handler().postDelayed(new Runnable(){
+            @Override
+            public void run() {
+                /* Create an Intent that will start the Menu-Activity. */
+                Intent mainIntent = new Intent(Splash_screen.this,bgame.class);
+                Splash_screen.this.startActivity(mainIntent);
+                Splash_screen.this.finish();
+            }
+        }, SPLASH_DISPLAY_LENGTH);
+
         progressBar=(ProgressBar) findViewById(R.id.progressBar);
         progressBar.setMax(max_progress());
-        animation();
+        //animation();
+
+
+
 
 
     }
     public void animation(){
 
-        new CountDownTimer(milli,1000) {
+        new CountDownTimer(milli,10000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 progressBar.setProgress(estimate_progress(millisUntilFinished));
@@ -44,7 +59,7 @@ public class Splash_screen extends ActionBarActivity {
 
             @Override
             public void onFinish() {
-                Intent moveto=new Intent(Splash_screen.this,MainActivity.class);
+                Intent moveto=new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(moveto);
                 finish();
             }

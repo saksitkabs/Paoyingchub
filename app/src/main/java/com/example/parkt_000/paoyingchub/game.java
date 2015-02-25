@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,7 +41,7 @@ public class game extends ActionBarActivity {
     int n ;
     int a ;
     int round;
-
+    int score;
 
 
     @Override
@@ -413,7 +414,19 @@ public class game extends ActionBarActivity {
 
 
   // timer();
+        if(player!= null){
+            player.stop();
+            player.release();}
 
+
+        if(player2!= null){
+            player2.stop();
+            player2.release();}
+
+
+        if(player3!= null){
+            player3.stop();
+            player3.release();}
 
 
         Toast t = Toast.makeText(this.getApplicationContext(),
@@ -460,10 +473,15 @@ public class game extends ActionBarActivity {
 
      //  timer();
 
-        player.stop();
-        player.release();
+
+        if(player!= null){
+            player.stop();
+            player.release();}
+
+        if(player3!= null){
         player3.stop();
-        player3.release();
+        player3.release();}
+
         player2=MediaPlayer.create(game.this,R.raw.lose);
 
         player2.start();
@@ -530,12 +548,15 @@ public class game extends ActionBarActivity {
 
                 String sname = intent.getStringExtra("Ename");
 
+
+                Log.d("user",""+round);
+                score = round - 1;
                 i.putExtra("name", sname);
-                i.putExtra("score",round);
+                i.putExtra("score",score);
                 this.setResult(RESULT_OK, i);
 
                 this.finish();
-                startActivity(i);
+
 
                 break;
 

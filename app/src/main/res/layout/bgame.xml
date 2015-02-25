@@ -21,7 +21,7 @@
             android:layout_gravity="center_vertical"
             android:textColor="#ffffffff" />
 
-        <android.inputmethodservice.ExtractEditText
+        <EditText
             android:layout_width="260dp"
             android:layout_height="90dp"
             android:id="@+id/name"

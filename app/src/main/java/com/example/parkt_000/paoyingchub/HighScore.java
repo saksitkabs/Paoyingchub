@@ -29,13 +29,13 @@ public class HighScore extends ActionBarActivity
               super.onResume();
               SQLiteDatabase db = helper.getReadableDatabase();
 
-              Cursor cursor = db.rawQuery("SELECT * FROM dbscore ;", null);
+              Cursor cursor = db.rawQuery("SELECT _id,name,score FROM dbscore ORDER by score DESC ;", null);
 
               SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
-                      android.R.layout.simple_list_item_1, // A textview
+                      android.R.layout.simple_list_item_2, // A textview
                       cursor, // cursor to a data collection
                       new String[] {"name","score"}, // column to be displayed
-                      new int[] {android.R.id.text1}, // ID of textview to display
+                      new int[] {android.R.id.text1,android.R.id.text2}, // ID of textview to display
                       0);
 
               ListView lv = (ListView)findViewById(R.id.name);
@@ -55,7 +55,8 @@ public class HighScore extends ActionBarActivity
         helper = new DBgame(this);
         SQLiteDatabase db = helper.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM dbscore ;", null);
+        Cursor cursor = db.rawQuery("SELECT _id,name,score FROM dbscore ORDER by score DESC  ;", null);
+        cursor.moveToFirst();
 
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
                 android.R.layout.simple_list_item_2, // A textview
@@ -66,7 +67,15 @@ public class HighScore extends ActionBarActivity
 
         ListView lv = (ListView)findViewById(R.id.name);
         lv.setAdapter(adapter);
-    }
+
+
+
+
+
+
+
+
+          }
 
 
 
